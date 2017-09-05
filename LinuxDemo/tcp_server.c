@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 		error_handling("socket() error!");
 
 	memset(&serv_addr, 0, sizeof(serv_addr));
-	serv_addr.sin_family = AF_INTE;
+	serv_addr.sin_family = AF_INET;
 	serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
 	serv_addr.sin_port = htons(atoi(argv[1]));
 
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 		error_handling("listen() error!");
 
 	clnt_addr_size = sizeof(clnt_sock);
-	clnt_sock = accept(serv_sock, (struct sockaddr*)clnt_addr, &clnt_addr_size);
+	clnt_sock = accept(serv_sock, (struct sockaddr*)&clnt_addr, &clnt_addr_size);
 	if (clnt_sock == -1)
 		error_handling("accept() error!");
 
