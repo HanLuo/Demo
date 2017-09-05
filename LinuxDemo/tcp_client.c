@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 
 	clnt_sock = socket(PF_INET, SOCK_STREAM, 0);
 	if (clnt_sock == -1)
-		error_handling("socket() error!")
+		error_handling("socket() error!");
 
 	memeset(&serv_addr, 0, sizeof(serv_addr));
 	serv_addr.sin_family = AF_INET;
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	serv_addr.sin_port = htons(atoi(argv[2]));
 
 	if (connect(clnt_sock, (struct sockaddr*)&serv_addr, sizeof(serv_addr)) == -1)
-		error_handling("connect() error!")
+		error_handling("connect() error!");
 
 	while(read_len = read(clnt_sock, &message[idex++], 1))
 	{
