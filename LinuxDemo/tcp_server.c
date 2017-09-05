@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 
 	socklen_t clnt_addr_size;
 
-	char message[] = "Hello World!"
+	char message[] = "Hello World!";
 
 	serv_sock = socket(PF_INET, SOCK_STREAM, 0);
 	if (serv_sock == -1)
@@ -38,12 +38,12 @@ int main(int argc, char *argv[])
 	clnt_addr_size = sizeof(clnt_sock);
 	clnt_sock = accept(serv_sock, (struct sockaddr*)clnt_addr, &clnt_addr_size);
 	if (clnt_sock == -1)
-		error_handling("accept() error!")
+		error_handling("accept() error!");
 
 	write(clnt_sock, message, sizeof(message));
 	close(clnt_sock);
 	close(serv_sock);
-
+	return 0;
 }
 
 void error_handling(char *message)
