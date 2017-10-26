@@ -33,8 +33,8 @@ int main(int argc, char *argv[])
 	while(1)
 	{
 		clnt_adr_sz = sizeof(clnt_addr);
-		str_len = recvfrom(serv_sock, (struct sockaddr*)&clnt_addr, &clnt_adr_sz);
-		sendto(serv_sock, (struct sockaddr*)&clnt_addr, clnt_adr_sz);
+		str_len = recvfrom(serv_sock, message, BUF_SIZE, 0, (struct sockaddr*)&clnt_addr, &clnt_adr_sz);
+		sendto(serv_sock, message, str_len, 0, (struct sockaddr*)&clnt_addr, clnt_adr_sz);
 	}
 	close(serv_sock);
 	return 0;
